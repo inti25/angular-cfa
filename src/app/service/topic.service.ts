@@ -17,7 +17,8 @@ export class TopicService {
   createTopic(topic: Topic) {
     const id = this.firestore.createId();
     topic.id = id;
-    return this.firestore.collection('topic').doc(id).set(Object.assign({}, topic));
+    let nTopic = Object.assign({}, topic);
+    return this.firestore.collection('topic').doc(id).set(nTopic);
   }
 
   updateTopic(topic: Topic){

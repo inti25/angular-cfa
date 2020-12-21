@@ -4,11 +4,17 @@
       <div class="card-body">
         <h4 class="card-title">Topic List</h4>
         <p class="card-description">
-          <button type="button" class="btn btn-inverse-success btn-fw" (click)="createTestTopic()" >Add New</button>
         </p>
         <div class="table-responsive">
           <table class="table table-bordered">
             <thead>
+            <tr>
+              <th></th>
+              <th><input type="text" name="topicName" [(ngModel)]="topicNew.topicName" class="form-control" id="exampleInputName1" required="required" placeholder="Topic Name"></th>
+              <th>
+                <button type="button" class="btn btn-inverse-success btn-fw" (click)="createTestTopic()" >Add New</button>
+              </th>
+            </tr>
             <tr>
               <th>#</th>
               <th>Topic Name</th>

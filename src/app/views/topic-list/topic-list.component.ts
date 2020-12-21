@@ -12,23 +12,22 @@ export class TopicListComponent implements OnInit {
   constructor(private topicService: TopicService) { }
 
   topics: Topic[];
+  topicNew: Topic;
 
   ngOnInit() {
     this.topicService.getTopics().subscribe(data => {
       this.topics = data.map(e => {
-        console.log('hungnq9', e.payload);
         return {
           id: e.payload.doc.id,
           topicName: (e.payload.doc.data() as Topic).topicName
         } as Topic;
       });
     });
+    this.topicNew = new Topic();
   }
 
   createTestTopic() {
-    const topictest = new Topic();
-    topictest.topicName = 'test';
-    this.create(topictest);
+    this.create(this.topicNew);
   }
 
   create(topic: Topic) {
