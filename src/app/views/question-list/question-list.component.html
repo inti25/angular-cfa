@@ -17,18 +17,25 @@
             </tr>
             <tr>
               <th>#</th>
-              <th>Question</th>
               <th>Topic</th>
-              <th>Text</th>
+              <th>Question</th>
               <th>Action</th>
             </tr>
             </thead>
             <tbody>
+            <ng-container></ng-container>
             <tr *ngFor="let question of questions; let i = index">
               <td>{{i + 1}}</td>
-              <td>{{question.text}}</td>
               <td>{{ getTopicNameById(question.topicId) }}</td>
-              <td>{{question.text}}</td>
+              <td>
+                <ng-katex-paragraph [paragraph]="question.text"></ng-katex-paragraph>
+                <div *ngFor="let aw of question.answers; let j = index" [ngStyle]="{'background-color': aw.isCorrect ? 'green' : 'none' }">
+                  <p>Answer {{j + 1}}:</p>
+                  <ng-katex-paragraph [paragraph]="aw.text"></ng-katex-paragraph>
+                  <p *ngIf="aw.correctReason && aw.correctReason.length > 0" style="font-style: italic">* {{aw.correctReason}}</p>
+                </div>
+
+              </td>
               <td>
                 <button class="btn btn-inverse-danger btn-fw" (click)="delete(question.id)">Delete</button>
               </td>

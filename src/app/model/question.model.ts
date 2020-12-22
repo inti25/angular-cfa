@@ -4,7 +4,7 @@ export class Question {
   id: string;
   text: string;
   topicId: string;
-  answers: object[];
+  answers: Answer[];
 
  addAnswer(answer: Answer): void {
    if (this.answers === undefined) {

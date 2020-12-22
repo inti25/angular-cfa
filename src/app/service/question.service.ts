@@ -13,7 +13,8 @@ export class QuestionService {
     const id = this.firestore.createId();
     question.id = id;
     const nQuestion = Object.assign({}, question);
-    return this.firestore.collection('question').doc(id).set(nQuestion);
+
+    return this.firestore.collection('question').doc(id).set(JSON.parse(JSON.stringify(nQuestion)));
   }
 
   getQuestions(topicId: string) {

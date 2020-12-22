@@ -10,6 +10,7 @@ import {environment} from '../environments/environment';
 import { TopicListComponent } from './views/topic-list/topic-list.component';
 import { FormsModule } from '@angular/forms';
 import { QuestionListComponent } from './views/question-list/question-list.component';
+import {KatexModule} from 'ng-katex';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { QuestionListComponent } from './views/question-list/question-list.compo
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
-    FormsModule
+    FormsModule,
+    KatexModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

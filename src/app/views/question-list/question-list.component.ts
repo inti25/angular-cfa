@@ -27,7 +27,8 @@ export class QuestionListComponent implements OnInit {
 
     this.questionService.getQuestions(null).subscribe(data => {
       this.questions = data.map(e => {
-        console.log((e.payload.doc.data() as Question));
+        const qe: Question = (e.payload.doc.data() as Question);
+        console.log(qe);
         return (e.payload.doc.data() as Question);
       });
     });
@@ -39,7 +40,7 @@ export class QuestionListComponent implements OnInit {
 
   createNewQ(): void {
     const q = new Question();
-    q.text = 'test Q';
+    q.text = 'You can write text, that contains expressions like this: $x ^ 2 + 5$ inside them. As you probably know. You also can write expressions in display mode as follows: $$\\sum_{i=1}^n(x_i^2 - \\overline{x}^2)$$. In first case you will need to use \\$expression\\$ and in the second one \\$\\$expression\\$\\$. To scape the \\$ symbol it\'s mandatory to write as follows: \\\\$';
     q.topicId = '3yhM9w399opcHcFuRTn5';
 
     const a1 = new Answer();
