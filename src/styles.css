@@ -1,2 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~katex/dist/katex.css';
+.previewText {
+  font-style: italic;
+  font-size: 10px;
+  color: gray;
+}

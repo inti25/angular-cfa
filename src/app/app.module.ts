@@ -11,12 +11,14 @@ import { TopicListComponent } from './views/topic-list/topic-list.component';
 import { FormsModule } from '@angular/forms';
 import { QuestionListComponent } from './views/question-list/question-list.component';
 import {KatexModule} from 'ng-katex';
+import { QuestionAddComponent } from './views/question-add/question-add.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopicListComponent,
-    QuestionListComponent
+    QuestionListComponent,
+    QuestionAddComponent
   ],
   imports: [
     BrowserModule,

@@ -17,6 +17,14 @@
         "destination": "/assets/**"
       },
       {
+        "source": "/topic/**",
+        "destination": "/topic/**"
+      },
+      {
+        "source": "/question/**",
+        "destination": "/question/**"
+      },
+      {
         "source": "**",
         "destination": "/index.html"
       }

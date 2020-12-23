@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Topic} from '../../model/topic.model';
 import {TopicService} from '../../service/topic.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-topic-list',
@@ -9,12 +10,12 @@ import {TopicService} from '../../service/topic.service';
 })
 export class TopicListComponent implements OnInit {
 
-  constructor(private topicService: TopicService) { }
+  constructor(private topicService: TopicService, private router: Router) { }
 
   topics: Topic[];
   topicNew: Topic;
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.topicService.getTopics().subscribe(data => {
       this.topics = data.map(e => {
         return {
@@ -26,19 +27,23 @@ export class TopicListComponent implements OnInit {
     this.topicNew = new Topic();
   }
 
-  createTestTopic() {
+  createTestTopic(): void {
     this.create(this.topicNew);
   }
 
-  create(topic: Topic) {
+  addQuestion(topicId: string): void {
+    this.router.navigate(['/question/add', topicId]);
+  }
+
+  create(topic: Topic): void {
     this.topicService.createTopic(topic);
   }
 
-  update(topic: Topic) {
+  update(topic: Topic): void {
     this.topicService.updateTopic(topic);
   }
 
-  delete(id: string) {
+  delete(id: string): void {
     this.topicService.deleteTopic(id);
   }
 
