@@ -12,13 +12,15 @@ import { FormsModule } from '@angular/forms';
 import { QuestionListComponent } from './views/question-list/question-list.component';
 import {KatexModule} from 'ng-katex';
 import { QuestionAddComponent } from './views/question-add/question-add.component';
+import { DashboardComponent } from './views/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopicListComponent,
     QuestionListComponent,
-    QuestionAddComponent
+    QuestionAddComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
