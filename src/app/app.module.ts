@@ -13,6 +13,8 @@ import { QuestionListComponent } from './views/question-list/question-list.compo
 import {KatexModule} from 'ng-katex';
 import { QuestionAddComponent } from './views/question-add/question-add.component';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
+import { LoginComponent } from './auth/login/login.component';
+import {AuthGuard} from './auth/auth-guard';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { DashboardComponent } from './views/dashboard/dashboard.component';
     TopicListComponent,
     QuestionListComponent,
     QuestionAddComponent,
-    DashboardComponent
+    DashboardComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,7 @@ import { DashboardComponent } from './views/dashboard/dashboard.component';
     FormsModule,
     KatexModule,
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
