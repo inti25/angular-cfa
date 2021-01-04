@@ -14,6 +14,7 @@ export class AppComponent {
 
   logOut() {
     this.authService.logout();
+    localStorage.removeItem('isAuthenticated');
     this.router.navigate(['/login']);
   }
 }

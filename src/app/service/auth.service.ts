@@ -14,16 +14,11 @@ export class AuthService {
     this.userObservable = firebaseAuth.authState;
   }
 
-  // signup(email: string, password: string) {
-  //   this.firebaseAuth
-  //   .createUserWithEmailAndPassword(email, password)
-  //   .then(value => {
-  //     console.log('Success!', value);
-  //   })
-  //   .catch(err => {
-  //     console.log('Something went wrong:',err.message);
-  //   });
-  // }
+  async isAuthendticated() {
+    const currentUser = await this.firebaseAuth.currentUser;
+    console.log('currentUser: ', currentUser, (currentUser !== undefined && currentUser !== null && !currentUser.isAnonymous));
+    return currentUser !== undefined && currentUser !== null && !currentUser.isAnonymous;
+  }
 
   async login(email: string, password: string) {
     return await this.firebaseAuth.signInWithEmailAndPassword(email, password);
